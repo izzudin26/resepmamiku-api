@@ -4,17 +4,17 @@ import { AppService } from './app.service';
 import { RestInterceptor } from './interceptors/rest.interceptor'
 import { APP_INTERCEPTOR } from '@nestjs/core'
 import { HttpRequestService } from './http-request/http-request.service';
-import { CategoryModule } from './category/category.module';
+import { ResepMamikuService } from './resepMamiku.service';
 
 @Module({
-  imports: [CategoryModule],
-  controllers: [],
+  imports: [],
+  controllers: [AppController],
   providers: [
     {
       provide: APP_INTERCEPTOR,
       useClass: RestInterceptor
     },
     AppService,
-    HttpRequestService],
+    HttpRequestService, ResepMamikuService],
 })
 export class AppModule { }
